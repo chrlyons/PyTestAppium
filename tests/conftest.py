@@ -208,10 +208,16 @@ def setup_environment():
     APK_PATH = os.path.abspath("apps/ApiDemos-debug.apk")
     if not os.path.exists(APK_PATH):
         logger.info("APK not found, downloading...")
-        subprocess.run([
-            "curl", "-L", "-o", APK_PATH,
-            "https://github.com/appium/appium/raw/master/packages/appium/sample-code/apps/ApiDemos-debug.apk"
-        ], check=True)
+        subprocess.run(
+            [
+                "curl",
+                "-L",
+                "-o",
+                APK_PATH,
+                "https://github.com/appium/appium/raw/master/packages/appium/sample-code/apps/ApiDemos-debug.apk",
+            ],
+            check=True,
+        )
 
     # Ensure emulator and Appium server are running
     EmulatorManager.create_avd()
@@ -220,7 +226,9 @@ def setup_environment():
 
     AppiumServer.start()
 
-    yield  # Run tests
+    # Setup
+    yield  # Test
+    # Teardown
 
     logger.info("Stopping Appium server and emulator...")
     AppiumServer.stop()
