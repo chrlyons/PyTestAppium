@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "mobiletesting"
+version = "0.1.0"
+description = ""
+authors = ["Christian Lyons <christian.lyons@pm.me>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+appium-python-client = "^4.5.0"
+pytest = "^8.3.4"
+psutil = "^7.0.0"
+requests = "^2.32.3"
+pytest-html = "^4.1.1"
+pytest-coverage = "^0.0"
+pytest-xdist = "^3.6.1"
+coverage = "^7.6.12"
+
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.8.3"
+black = "^24.8.0"
+isort = "^5.13.2"
+
+[tool.isort]
+profile = "black"
+
+[tool.ruff]
+line-length = 88
+
+[tool.black]
+line-length = 88
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
